@@ -9,7 +9,7 @@ app.use(cors());
 
 // BDD vinted
 mongoose.connect(process.env.MONGODB_URI);
-
+console.log("coucou");
 // ROUTES
 const userRoutes = require("./routes/user");
 app.use(userRoutes);
