@@ -1,15 +1,19 @@
 require("dotenv").config();
 const express = require("express");
+const app = express();
 const formidable = require("express-formidable");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const app = express();
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config(process.env.CLOUDINARY_CONFIG);
+
 app.use(formidable());
 app.use(cors());
 
 // BDD vinted
 mongoose.connect(process.env.MONGODB_URI);
-console.log("coucou");
+
 // ROUTES
 const userRoutes = require("./routes/user");
 app.use(userRoutes);
