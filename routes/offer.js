@@ -8,10 +8,11 @@ const Offer = require("../models/Offer");
 const isAuthenticated = require("../middleware/isAuthenticated");
 // CLOUDINARY :
 const cloudinary = require("cloudinary").v2;
+
 cloudinary.config({
-  cloud_name: "dnypnz3xt",
-  api_key: "369314657779522",
-  api_secret: "xriR_YvDFzeaXm8s2hbG6NFQFxM",
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_PUBLIC_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET_KEY,
 });
 
 router.get("/offers", async (req, res) => {
